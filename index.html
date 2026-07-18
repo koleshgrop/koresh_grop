@@ -389,6 +389,16 @@
   .video-card-body h3{font-family:var(--font-display);font-weight:800;font-size:17px;color:var(--navy);margin-bottom:8px;}
   .video-card-body p{font-size:14px;color:#524e42;}
 
+  /* ---------- kazakhstan overview (video + text) ---------- */
+  .kz-overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+  .single-video-wrap{margin:0;}
+  .kz-overview-text h2{font-family:var(--font-display);font-weight:800;font-size:27px;color:var(--navy);margin:10px 0 16px;line-height:1.4;}
+  .kz-overview-text p{font-size:15px;color:#3d3a30;line-height:1.95;margin-bottom:14px;}
+  .kz-overview-text p:last-child{margin-bottom:0;}
+  @media (max-width:980px){
+    .kz-overview-grid{grid-template-columns:1fr;gap:28px;}
+  }
+
   /* ---------- photo gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   .gallery-card{
@@ -602,6 +612,25 @@
           </div>
         </div>
         <div class="perforation"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kazakhstan-overview" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="kz-overview-grid">
+      <div class="video-card single-video-wrap">
+        <div class="video-frame-wrap">
+          <div class="video-placeholder"><span class="play-ic">▶</span><span>لسه مفيش فيديو مضاف</span></div>
+          <button type="button" class="video-edit-btn">🎬 إضافة رابط الفيديو</button>
+        </div>
+      </div>
+      <div class="kz-overview-text reveal in">
+        <span class="eyebrow">نبذة عن كازاخستان</span>
+        <h2>كازاخستان بلد بين قارتين</h2>
+        <p>كازاخستان تتميز بموقعها بين قارتين، حيث يمتد الجزء الأكبر من البلاد في آسيا الوسطى، بينما يقع الجزء المتبقي في أوروبا الشرقية، وتحديداً في غرب نهر الأورال.</p>
+        <p>تتشارك كازاخستان حدودًا برية مع الصين وأوزبكستان وروسيا وتركمانستان وقيرغيزستان. وبينما تطل أراضيها على بحر قزوين من الغرب، تشمل تضاريس كازاخستان أراضي مغطاة بالثلوج، وصحاري، وجبال، ودلتا، وتلال، وأودية صخرية، وسهولًا شاسعة، وسهوبًا.</p>
       </div>
     </div>
   </div>
@@ -914,6 +943,12 @@
     </div><div class="gallery-card reveal in">
       <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
       <button type="button" class="img-edit-btn">📷 رفع صورة</button>
+    </div><div class="gallery-card reveal in">
+      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
+      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
+    </div><div class="gallery-card reveal in">
+      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
+      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
     </div></div>
   </div>
 </section>
@@ -949,12 +984,12 @@
 
 <section class="section form-section" id="apply">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal in">
       <span class="eyebrow">ابدأ رحلتك لكازاخستان</span>
       <h2>اطلب استشارتك المجانية</h2>
       <p>املأ بياناتك وهنتواصل معاك خلال 24 ساعة نحدد فيها أنسب جامعة وتخصص يناسب هدفك.</p>
     </div>
-    <div class="ticket reveal">
+    <div class="ticket reveal in">
       <div class="ticket-form">
         <form id="leadForm" action="https://formspree.io/f/xpqvpdak" method="POST">
           <div class="grid2">
@@ -1131,6 +1166,7 @@
     '.rstep h4', '.rstep p', '.rstep .node',
     '.test-card .quote', '.test-card .who', '.test-card .uni',
     '.video-card-body h3', '.video-card-body p',
+    '.kz-overview-text h2', '.kz-overview-text p',
     '.stat .num', '.stat .lbl',
     '.form-note', '.foot-brand', '.brand-text', '.passport-top .country', '.ticket-stub .v',
     '.editable'
@@ -1294,7 +1330,7 @@
   }
 
   // زرار تغيير الفيديو (يشتغل على أي بطاقة، حتى اللي بتتضاف بعدين)
-  document.querySelectorAll('.video-grid').forEach(grid => {
+  document.querySelectorAll('.video-grid, .single-video-wrap').forEach(grid => {
     grid.addEventListener('click', (e) => {
       const btn = e.target.closest('.video-edit-btn');
       if(!btn) return;
