@@ -470,6 +470,36 @@
   .tool-btn.primary:hover{background:var(--gold-2);}
   .tool-hint{font-size:12px;color:rgba(247,244,236,0.65);}
 
+  /* ---------- GitHub publish panel ---------- */
+  .gh-overlay{
+    position:fixed;inset:0;background:rgba(15,20,30,0.55);z-index:400;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  .gh-panel{
+    background:var(--cream);border-radius:12px;max-width:440px;width:100%;
+    max-height:88vh;overflow-y:auto;padding:24px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);text-align:right;
+  }
+  .gh-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .gh-panel-head h3{font-family:var(--font-display);font-size:18px;color:var(--navy);}
+  .gh-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--navy);line-height:1;padding:4px;}
+  .gh-note{font-size:12.5px;color:#6b6656;margin-bottom:16px;line-height:1.6;}
+  .gh-panel label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:12px;}
+  .gh-panel label input[type=text],.gh-panel label input[type=password]{
+    display:block;width:100%;margin-top:6px;padding:9px 12px;border-radius:6px;
+    border:1px solid var(--line);font-family:var(--font-body);font-size:13.5px;
+    background:#fff;color:var(--ink);box-sizing:border-box;
+  }
+  .gh-panel label input:focus{outline:1.5px solid var(--gold);}
+  .gh-checkbox{display:flex;align-items:center;gap:8px;font-weight:500;font-size:12.5px;}
+  .gh-checkbox input{width:auto;margin:0;}
+  .gh-status{margin-top:12px;font-size:13px;min-height:18px;line-height:1.6;}
+  .gh-status.ok{color:#2e7d32;font-weight:700;}
+  .gh-status.err{color:var(--stamp);font-weight:700;}
+  .gh-help{margin-top:14px;font-size:12.5px;color:#524e42;}
+  .gh-help summary{cursor:pointer;font-weight:700;color:var(--navy);}
+  .gh-help ol{margin:8px 20px 0;display:flex;flex-direction:column;gap:5px;}
+
   body.edit-mode [contenteditable="true"]{
     outline:1.5px dashed var(--gold);outline-offset:3px;border-radius:2px;cursor:text;
   }
@@ -588,13 +618,13 @@
 
 <section class="section" id="services">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">الخدمات</span>
       <h2>كل خدمة بطاقة صعود لمرحلة في رحلتك لكازاخستان</h2>
       <p>مش لازم تعرف كل حاجة عن التقديم، إحنا هنمشيك في كل خطوة لحد ما توصل بوابة الجامعة.</p>
     </div>
     <div class="services-grid">
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 01</span><span class="code">SELECT</span></div>
         <div class="bpass-body">
           <span class="num">SVC—01</span>
@@ -602,7 +632,7 @@
           <p>نساعدك تختار بين جامعة الفارابي وجامعة أسفيندياروف حسب تخصصك وميزانيتك وأهدافك المهنية.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 02</span><span class="code">BUILD</span></div>
         <div class="bpass-body">
           <span class="num">SVC—02</span>
@@ -610,7 +640,7 @@
           <p>تجهيز كل المستندات المطلوبة، الشهادات، الخطابات، والسيرة الذاتية بالشكل اللي الجامعات بتطلبه.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 03</span><span class="code">WRITE</span></div>
         <div class="bpass-body">
           <span class="num">SVC—03</span>
@@ -618,7 +648,7 @@
           <p>مساعدتك تكتب Statement of Purpose يعبر عن قصتك الحقيقية بأسلوب يلفت نظر لجنة القبول.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 04</span><span class="code">CERTIFY</span></div>
         <div class="bpass-body">
           <span class="num">SVC—04</span>
@@ -626,7 +656,7 @@
           <p>تصديق الشهادة الثانوية من الخارجية والسفارة الكازاخستانية (أو الأبوستيل) وترجمة معتمدة لكل المستندات.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 05</span><span class="code">PREPARE</span></div>
         <div class="bpass-body">
           <span class="num">SVC—05</span>
@@ -634,7 +664,7 @@
           <p>تجهيزك للمقابلة والامتحان المطلوبين من الجامعة قبل استلام القبول الدراسي وإصدار الدعوة.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">GATE 06</span><span class="code">DEPART</span></div>
         <div class="bpass-body">
           <span class="num">SVC—06</span>
@@ -648,13 +678,13 @@
 
 <section class="section" id="requirements">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">قبل ما تبدأ</span>
       <h2>متطلبات التقديم للدراسة في كازاخستان</h2>
       <p>دي المستندات الأساسية المطلوبة لأي طالب عايز يقدم في كازاخستان، بغض النظر عن الجامعة اللي هيختارها.</p>
     </div>
     <div class="services-grid" id="requirementsGrid">
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 01</span><span class="code">PASSPORT</span></div>
         <div class="bpass-body">
           <span class="num">REQ—01</span>
@@ -662,7 +692,7 @@
           <p>جواز سفر ساري المفعول، ومتبقى له مدة لا تقل عن عام من تاريخ التقديم.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 02</span><span class="code">CERTIFY</span></div>
         <div class="bpass-body">
           <span class="num">REQ—02</span>
@@ -670,7 +700,7 @@
           <p>شهادة الثانوية العامة مصدقة من وزارة الخارجية وكذلك من السفارة الكازاخستانية في بلدك (أو أبوستيل).</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 03</span><span class="code">LANGUAGE</span></div>
         <div class="bpass-body">
           <span class="num">REQ—03</span>
@@ -678,7 +708,7 @@
           <p>التحدث باللغة الإنجليزية أو الروسية بشكل جيد، حسب اللغة اللي هتدرس بيها تخصصك.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 04</span><span class="code">PHOTO</span></div>
         <div class="bpass-body">
           <span class="num">REQ—04</span>
@@ -686,7 +716,7 @@
           <p>صورة شخصية حديثة بمقاس 4×6.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 05</span><span class="code">CONTRACT</span></div>
         <div class="bpass-body">
           <span class="num">REQ—05</span>
@@ -694,7 +724,7 @@
           <p>تعبئة العقد ما بين الشركة والطالب لاستكمال إجراءات التقديم.</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 06</span><span class="code">RECORD</span></div>
         <div class="bpass-body">
           <span class="num">REQ—06</span>
@@ -702,7 +732,7 @@
           <p>شهادة عدم محكومية (إن وجدت، حسب سنك ومتطلبات القبول).</p>
         </div>
       </div>
-      <div class="bpass reveal in">
+      <div class="bpass reveal">
         <div class="bpass-head"><span class="code">DOC 07</span><span class="code">TEST</span></div>
         <div class="bpass-body">
           <span class="num">REQ—07</span>
@@ -716,12 +746,12 @@
 
 <section class="section" id="route" style="background:var(--paper);">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">رحلة التقديم</span>
       <h2>من أول استشارة لحد ما تركب الطيارة</h2>
       <p>خط سير واضح، كل مرحلة ليها مدة تقريبية ومسؤول متابع.</p>
     </div>
-    <div class="route reveal in">
+    <div class="route reveal">
       <div class="route-line"></div>
       <div class="route-steps">
         <div class="rstep">
@@ -761,14 +791,14 @@
 
 <section class="section" id="universities">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">الجامعات المعتمدة</span>
       <h2>حالياً بنعتمد جامعتين في كازاخستان</h2>
       <p>مجموعة قريش شغالة حالياً على التقديم لجامعتين معتمدتين فقط، عشان نضمن متابعة دقيقة لكل طالب من أول التقديم لحد الدعوة الدراسية.</p>
     </div>
     <div class="uni-grid">
 
-      <div class="uni-card reveal in">
+      <div class="uni-card reveal">
         <div class="uni-head">
           <h3 class="editable">جامعة الفارابي الدولية</h3>
           <span class="badge editable">QS Top 138 عالميًا</span>
@@ -802,7 +832,7 @@
         </div>
       </div>
 
-      <div class="uni-card reveal in">
+      <div class="uni-card reveal">
         <div class="uni-head">
           <h3 class="editable">جامعة أسفيندياروف الطبية الدولية</h3>
           <span class="badge editable">تخصص طبي بحت</span>
@@ -831,13 +861,13 @@
 
 <section class="section" id="videos" style="background:var(--paper);">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">فيديوهات</span>
       <h2>شوف قصص وشروحات بالفيديو</h2>
       <p>فيديوهات تعريفية وتجارب طلاب حقيقية. تقدر تضيف أو تغيّر أي فيديو من وضع التعديل تحت.</p>
     </div>
     <div class="video-grid">
-      <div class="video-card reveal in">
+      <div class="video-card reveal">
         <div class="video-frame-wrap">
           <div class="video-placeholder"><span class="play-ic">▶</span><span>لسه مفيش فيديو مضاف</span></div>
           <button type="button" class="video-edit-btn">🎬 إضافة رابط الفيديو</button>
@@ -847,7 +877,7 @@
           <p class="editable">تعرف على مراحل التقديم في أقل من دقيقتين.</p>
         </div>
       </div>
-      <div class="video-card reveal in">
+      <div class="video-card reveal">
         <div class="video-frame-wrap">
           <div class="video-placeholder"><span class="play-ic">▶</span><span>لسه مفيش فيديو مضاف</span></div>
           <button type="button" class="video-edit-btn">🎬 إضافة رابط الفيديو</button>
@@ -857,7 +887,7 @@
           <p class="editable">طالب بيحكي تجربته من التقديم لحد القبول.</p>
         </div>
       </div>
-      <div class="video-card reveal in">
+      <div class="video-card reveal">
         <div class="video-frame-wrap">
           <div class="video-placeholder"><span class="play-ic">▶</span><span>لسه مفيش فيديو مضاف</span></div>
           <button type="button" class="video-edit-btn">🎬 إضافة رابط الفيديو</button>
@@ -873,47 +903,35 @@
 
 <section class="section" id="gallery" style="background:var(--paper);">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">معرض الصور</span>
       <h2>معرض الصور</h2>
-      <p><br></p>
+      <p>مكانك تحط فيه أي صورة تحب — دوس على وضع التعديل تحت، وبعدين "إضافة صورة" وارفع الصورة من جهازك، وتقدر تمسح أي صورة في أي وقت بزرار الـ ×.</p>
     </div>
-    <div class="gallery-grid"><div class="gallery-card reveal in">
-      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
-      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
-    </div><div class="gallery-card reveal in">
-      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
-      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
-    </div><div class="gallery-card reveal in">
-      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
-      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
-    </div><div class="gallery-card reveal in">
-      <div class="gallery-placeholder"><span class="ic">🖼️</span><span>لسه مفيش صورة مضافة</span></div>
-      <button type="button" class="img-edit-btn">📷 رفع صورة</button>
-    </div></div>
+    <div class="gallery-grid"></div>
   </div>
 </section>
 
 <section class="section" id="stories">
   <div class="wrap">
-    <div class="section-head reveal in">
+    <div class="section-head reveal">
       <span class="eyebrow">آراء الطلاب</span>
       <h2>طلاب مشوا نفس الطريق</h2>
     </div>
     <div class="test-grid">
-      <div class="test-card reveal in">
+      <div class="test-card reveal">
         <div class="flag">🇰🇿</div>
         <p class="quote">"كنت خايف من فكرة السفر والمستندات، مجموعة قريش رتبلي كل ورقة وقدملي جدول زمني واضح لحد ما اتقبلت في الفارابي."</p>
         <div class="who">مريم عبد الله</div>
         <div class="uni">طب أسنان — جامعة الفارابي الدولية</div>
       </div>
-      <div class="test-card reveal in">
+      <div class="test-card reveal">
         <div class="flag">🇰🇿</div>
         <p class="quote">"أكتر حاجة فرقت معايا هي التجهيز للمقابلة والامتحان، حسّيت إني داخل وأنا متأكد مش مغامر."</p>
         <div class="who">يوسف السيد</div>
         <div class="uni">طب عام — جامعة أسفيندياروف الطبية</div>
       </div>
-      <div class="test-card reveal in">
+      <div class="test-card reveal">
         <div class="flag">🇰🇿</div>
         <p class="quote">"من تصديق الشهادة لحد استلام دعوة الجامعة، حسّيت إن عندي فريق شغال معايا مش بس بيرد على الأسئلة."</p>
         <div class="who">هاجر محمود</div>
@@ -1028,6 +1046,8 @@
     </div>
   </div>
 </footer>
+
+
 
 
 
@@ -1285,6 +1305,7 @@
   const toggleBtn = document.getElementById('toggleEdit');
   const downloadBtn = document.getElementById('downloadSite');
   const editHint = document.getElementById('editHint');
+  const publishBtn = document.getElementById('publishGithub');
 
   // لو دي نسخة منشورة (تم حذف شريط التعديل منها) الكود التالي بيتخطى نفسه بأمان
   if (toggleBtn && downloadBtn && editHint) {
@@ -1296,21 +1317,23 @@
     });
     toggleBtn.textContent = editMode ? '✅ إنهاء التعديل' : '✏️ تفعيل وضع التعديل';
     downloadBtn.style.display = editMode ? 'inline-flex' : 'none';
+    if(publishBtn) publishBtn.style.display = editMode ? 'inline-flex' : 'none';
     editHint.style.display = editMode ? 'inline' : 'none';
   });
 
-  downloadBtn.addEventListener('click', () => {
+  // بناء نسخة نظيفة من الصفحة (من غير أي أدوات تعديل) — تُستخدم في التنزيل والنشر على GitHub
+  function buildCleanHtmlString(){
     const clone = document.documentElement.cloneNode(true);
     const cloneBody = clone.querySelector('body');
     if (cloneBody) cloneBody.classList.remove('edit-mode');
     clone.classList.remove('edit-mode');
     clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-    clone.querySelectorAll('.card-delete, .add-card, .edit-toolbar').forEach(el => el.remove());
-    const toggle = clone.querySelector('#toggleEdit');
-    if(toggle) toggle.textContent = '✏️ تفعيل وضع التعديل';
-    const dl = clone.querySelector('#downloadSite');
-    if(dl) dl.style.display = 'none';
-    const htmlStr = '<!DOCTYPE html>\n' + clone.outerHTML;
+    clone.querySelectorAll('.card-delete, .add-card, .edit-toolbar, .gh-overlay').forEach(el => el.remove());
+    return '<!DOCTYPE html>\n' + clone.outerHTML;
+  }
+
+  downloadBtn.addEventListener('click', () => {
+    const htmlStr = buildCleanHtmlString();
     const blob = new Blob([htmlStr], { type: 'text/html' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -1321,6 +1344,120 @@
     a.remove();
     URL.revokeObjectURL(url);
   });
+
+  // ---------- النشر المباشر على GitHub (بيحافظ على نفس اللينك) ----------
+  const ghOverlay = document.getElementById('githubOverlay');
+  const ghClose = document.getElementById('ghClose');
+  const ghOwner = document.getElementById('ghOwner');
+  const ghRepo = document.getElementById('ghRepo');
+  const ghBranch = document.getElementById('ghBranch');
+  const ghPath = document.getElementById('ghPath');
+  const ghToken = document.getElementById('ghToken');
+  const ghRemember = document.getElementById('ghRemember');
+  const ghPublishBtn = document.getElementById('ghPublishBtn');
+  const ghStatus = document.getElementById('ghStatus');
+
+  if (publishBtn && ghOverlay) {
+    function loadGhSettings(){
+      try{
+        const saved = JSON.parse(localStorage.getItem('qurayshGhSettings') || '{}');
+        ghOwner.value = saved.owner || '';
+        ghRepo.value = saved.repo || '';
+        ghBranch.value = saved.branch || 'main';
+        ghPath.value = saved.path || 'index.html';
+        if(saved.token){ ghToken.value = saved.token; ghRemember.checked = true; }
+      }catch(e){
+        ghBranch.value = ghBranch.value || 'main';
+        ghPath.value = ghPath.value || 'index.html';
+      }
+    }
+
+    function saveGhSettings(){
+      if(!ghRemember.checked){ localStorage.removeItem('qurayshGhSettings'); return; }
+      localStorage.setItem('qurayshGhSettings', JSON.stringify({
+        owner: ghOwner.value.trim(), repo: ghRepo.value.trim(),
+        branch: ghBranch.value.trim() || 'main', path: ghPath.value.trim() || 'index.html',
+        token: ghToken.value.trim()
+      }));
+    }
+
+    publishBtn.addEventListener('click', () => {
+      loadGhSettings();
+      ghOverlay.style.display = 'flex';
+      ghStatus.textContent = '';
+      ghStatus.className = 'gh-status';
+    });
+    ghClose.addEventListener('click', () => { ghOverlay.style.display = 'none'; });
+    ghOverlay.addEventListener('click', (e) => { if(e.target === ghOverlay) ghOverlay.style.display = 'none'; });
+
+    ghPublishBtn.addEventListener('click', async () => {
+      const owner = ghOwner.value.trim();
+      const repo = ghRepo.value.trim();
+      const branch = ghBranch.value.trim() || 'main';
+      const path = ghPath.value.trim() || 'index.html';
+      const token = ghToken.value.trim();
+
+      if(!owner || !repo || !token){
+        ghStatus.textContent = 'من فضلك املأ اسم المستخدم واسم الـ Repository والـ Token.';
+        ghStatus.className = 'gh-status err';
+        return;
+      }
+
+      saveGhSettings();
+      ghPublishBtn.disabled = true;
+      ghPublishBtn.textContent = '⏳ جاري النشر...';
+      ghStatus.textContent = 'بنجيب نسخة الملف الحالية من GitHub...';
+      ghStatus.className = 'gh-status';
+
+      try{
+        const apiBase = `https://api.github.com/repos/${owner}/${repo}/contents/${encodeURIComponent(path)}`;
+        const getRes = await fetch(`${apiBase}?ref=${encodeURIComponent(branch)}`, {
+          headers: { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+
+        let sha;
+        if(getRes.status === 200){
+          const getData = await getRes.json();
+          sha = getData.sha;
+        } else if(getRes.status !== 404){
+          const errData = await getRes.json().catch(() => ({}));
+          throw new Error(`تعذر الوصول للملف (${getRes.status}): ${errData.message || 'خطأ غير معروف'}`);
+        }
+
+        const htmlStr = buildCleanHtmlString();
+        const contentB64 = btoa(unescape(encodeURIComponent(htmlStr)));
+
+        ghStatus.textContent = 'بنرفع النسخة الجديدة...';
+
+        const body = { message: 'تحديث الموقع من وضع التعديل', content: contentB64, branch: branch };
+        if(sha) body.sha = sha;
+
+        const putRes = await fetch(apiBase, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        });
+
+        if(!putRes.ok){
+          const errData = await putRes.json().catch(() => ({}));
+          throw new Error(`فشل النشر (${putRes.status}): ${errData.message || 'خطأ غير معروف'}`);
+        }
+
+        ghStatus.textContent = '✅ تم النشر بنجاح! نفس اللينك هيعرض التحديث خلال دقيقة أو دقيقتين.';
+        ghStatus.className = 'gh-status ok';
+      }catch(err){
+        ghStatus.textContent = '❌ ' + err.message;
+        ghStatus.className = 'gh-status err';
+      }finally{
+        ghPublishBtn.disabled = false;
+        ghPublishBtn.textContent = '🚀 نشر التحديثات دلوقتي';
+      }
+    });
+  }
   } // نهاية شرط وجود شريط التعديل
 </script><input type="file" accept="image/*" style="display: none;">
 
